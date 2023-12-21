@@ -1,5 +1,5 @@
 import { defineConfig } from "vitest/config";
 
 export default defineConfig({
-  test: { dir: "__test__" },
+  test: { dir: "__tests__" },
 });
