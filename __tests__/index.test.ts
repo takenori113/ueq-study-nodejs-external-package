@@ -1,5 +1,6 @@
 import { describe, test, expect, vi } from "vitest";
 import { readFile, rm, cp } from "fs/promises";
+import sharp from "sharp";
 
 import { main as main1 } from "../script_1";
 import { main as main2 } from "../script_2";
@@ -26,8 +27,9 @@ describe("外部パッケージの問題1(csv-parse)", () => {
 describe("外部パッケージの問題2(sharp)", () => {
   test("問題2の結果が正しい", async () => {
     await rm("./output.png").catch(() => {});
+    const buffer = await sharp("./logo.png").resize(100).grayscale().toBuffer();
+    const answer = buffer.toString("base64");
     await main2();
-    const answer = await readFile("./__tests__/answer.png", "base64");
     const result = await readFile("./output.png", "base64");
     expect(answer).toEqual(result);
     await rm("./output.png");
