@@ -12,5 +12,9 @@
   "volta": {
     "node": "18.17.1",
     "yarn": "4.0.2"
+  },
+  "dependencies": {
+    "csv-parse": "^5.5.5",
+    "sharp": "^0.33.3"
   }
 }
