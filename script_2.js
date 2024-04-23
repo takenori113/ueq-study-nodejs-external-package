@@ -4,7 +4,7 @@ export const main = async () => {
   const imgPath = "./logo.png";
   const outputPath = "./output.png";
 
-  sharp(imgPath)
+  await sharp(imgPath)
     .resize(100)
     .grayscale()
     .toFile(outputPath)
