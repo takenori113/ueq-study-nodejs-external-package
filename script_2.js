@@ -7,6 +7,6 @@ export const main = async () => {
   return sharp(imgPath)
   .resize(100)
   .grayscale()
-  .toFile(outputPath)
+  .toFile(outputPath);
 }
 main();
